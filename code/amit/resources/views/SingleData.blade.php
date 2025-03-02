@@ -7,7 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="container mt-5 d-flex justify-content-between align-items-center mb-4">
     <h2 class="text-center">Singel Data Display</h2>
+    <button class="btn btn-primary"><a href="{{ route('displayData') }}" class="text-white
+    text-decoration-none">Back</a></button>
+    </div>
    <div class="container mt-5">
     <table class="table table-bordered table-striped table-hover  table-responsive">
         <thead class="table-dark text-center fs-5">

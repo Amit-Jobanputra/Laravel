@@ -35,8 +35,8 @@
                 <td>{{ $datas->city }}</td>
                 <td>
                     <a href="{{route('show',['id'=>$datas->id])}}" class="btn btn-secondary">View</a>
-                    <a class="btn btn-warning">Edit</a>
-                    <a class="btn btn-danger">Delete</a>
+                    <a href="{{route('edit',['id'=>$datas->id])}}" class="btn btn-warning">Edit</a>
+                    <a href="{{route('delete',['id'=>$datas->id])}}" class="btn btn-danger">Delete</a>
 
             </tr>
             @endforeach

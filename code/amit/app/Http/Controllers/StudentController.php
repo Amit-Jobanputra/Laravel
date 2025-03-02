@@ -29,13 +29,19 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        DB::table('students')->insert([
+        $data=DB::table('students')->insert([
             'name' => $request->name,
             'email' => $request->email,
             'address' => $request->address,
             'city' => $request->city,
         ]);
-        return redirect()->route('displayData');
+        if($data){
+            return redirect()->route('displayData');
+        }
+        else{
+            return redirect()->route('create');
+        }
+        
     }
 
     /**
@@ -52,7 +58,8 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = DB::table('students')->where('id',"=", $id)->first();
+        return view('Edit',compact('data'));
     }
 
     /**
@@ -60,7 +67,19 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data=DB::table('students')->where('id','=',$id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'address' => $request->address,
+            'city' => $request->city,
+        ]);
+        if($data){
+            return redirect()->route('displayData');
+        }
+        else{
+            return redirect()->route('edit',[$id]);
+        }
+        
     }
 
     /**
@@ -68,6 +87,7 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data=DB::table('students')->where('id','=',$id)->delete();
+        return redirect()->route('displayData');
     }
 }

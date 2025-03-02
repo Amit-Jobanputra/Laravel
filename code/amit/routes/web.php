@@ -15,7 +15,7 @@ use App\Http\Controllers\StudentController;
 */
 
 Route::get('/', function () {
-    return view('Welcome');
+    return view('From');
 });
 
 
@@ -23,3 +23,6 @@ Route::get('/student', [StudentController::class,'create'])->name('create');
 Route::get('/students', [StudentController::class,'index'])->name('displayData');    
 Route::post('/student/store', [StudentController::class,'store'])->name('display');
 Route::get('/student/{id}/show', [StudentController::class,'show'])->name('show');
+Route::get('/student/{id}/edit', [StudentController::class,'edit'])->name('edit');
+Route::post('/student/{id}/update', [StudentController::class,'update'])->name('update');
+Route::get('/student/{id}/delete', [StudentController::class,'destroy'])->name('delete');   
