@@ -15,3 +15,7 @@ use App\Http\Controllers\IDcardController;
 */
 
 Route::post('/test',[IDcardController::class,'store']);
+Route::post('/testDemo',[IDcardController::class,'attendance']);
+Route::post('/course',[IDcardController::class,'course']);
+Route::get('/showall',[IDcardController::class,'retrive']);
+Route::get('/single/{id}',[IDcardController::class,'onerecord']);
