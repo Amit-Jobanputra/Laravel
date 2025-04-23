@@ -11,7 +11,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -19,7 +19,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+       return "This is From";
     }
 
     /**
