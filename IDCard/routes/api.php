@@ -19,3 +19,7 @@ Route::post('/testDemo',[IDcardController::class,'attendance']);
 Route::post('/course',[IDcardController::class,'course']);
 Route::get('/showall',[IDcardController::class,'retrive']);
 Route::get('/single/{id}',[IDcardController::class,'onerecord']);
+Route::post('/exam',[IDcardController::class,'exam']);
+Route::get('/record',[IDcardController::class,'record']);
+Route::get('/onerecord/{id}',[IDcardController::class,'singlerecord']);
+Route::get('/delete/{id}',[IDcardController::class,'delete']);

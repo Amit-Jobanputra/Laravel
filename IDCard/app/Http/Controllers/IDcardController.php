@@ -71,4 +71,42 @@ class IDcardController extends Controller
             'data'=>$data
         ]);
     }
+    function exam(Request $r){
+        DB::table('exam')->insert([
+            'firstName' => $r->firstName,
+            'lastName' => $r->lastName,
+            'age'=>$r->age,
+            'mobile'=>$r->mobile
+        ]);
+        return response()->json([
+            'firstName' => $r->firstName,
+            'lastName' => $r->lastName,
+            'age'=>$r->age,
+            'mobile'=>$r->mobile
+        ]);
+    }
+    function record()
+    {
+        $data=DB::table('exam')->get(); 
+        return response()->json([
+            'code'=>200,
+            'message'=>'Sucess',
+            'data'=>$data
+        ]);
+    }
+    function singlerecord($id){
+        $data=DB::table('exam')->where('id',$id)->first();
+        return response()->json([
+            'code'=>200,
+            'message'=>'Sucess',
+            'data'=>$data
+        ]);
+    }
+    function delete($id){
+        $data=DB::table('exam')->where('id',$id)->delete();
+        return response()->json([
+            'code'=>200,
+            'message'=>'Sucess'
+        ]);
+    }
 }
